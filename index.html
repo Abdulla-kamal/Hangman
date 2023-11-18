@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    <div class="container">
+        <div class="game-info">
+            <div class="game-name">Hangman</div>
+            <div class="category">
+                Word From : <span></span>
+            </div>
+        </div>
+        <hr>
+        
+        <div class="row">
+            <div class="hangman-draw">
+                <div class="the-draw">
+                    <div class="the-stand"></div>
+                    <div class="the-hang"></div>
+                    <div class="the-rope"></div>
+                    <div class="the-man">
+                        <div class="the-head"></div>
+                        <div class="the-body"></div>
+                        <div class="the-hands"></div>
+                        <div class="the-legs"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="letters"></div>
+        </div>
+        <hr>
+        <div class="letters-guess"></div>
+    </div>
+<audio id="win" src="mp3/mixkit-achievement-bell-600 (1).wav"></audio>
+<audio id="lose" src="mp3/mixkit-losing-drums-2023.wav"></audio>
+<audio id="over" src="mp3/mixkit-horror-lose-2028.wav"></audio>
+<audio id="cong" src="mp3/mixkit-ethereal-fairy-win-sound-2019.wav"></audio>
+    <script src="game.js"></script>
+</body>
+</html>

@@ -1,0 +1,398 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+
+:root {
+    --main-color: #222;
+    ---the-stoke:4px;
+}
+
+.container {
+    margin: 20px auto;
+    width: 1000px;
+}
+
+hr {
+    border: 1px solid #eee;
+}
+
+.game-info {
+    display: flex;
+}
+
+.game-info .game-name{
+    flex:1;
+}
+
+.game-info .category {
+    flex:1;
+    text-align: right;
+}
+
+.game-info .category span {
+    text-transform: capitalize;
+    color: #E91E63;
+    font-weight: bold;
+}
+
+
+.row {
+    display: flex;
+}
+
+.hangman-draw {
+    flex: 1;
+    background-color: #F8F8F8F8;
+    padding: 20px;
+    height: 324px;
+}
+
+.hangman-draw .the-draw {
+    width: 60px;
+    height: 280px;
+    position: relative;
+    margin: auto;
+    z-index: 9999;
+    border:none
+}
+
+.hangman-draw .the-draw.wrong-1 {
+    border-bottom: var(---the-stoke) solid var(--main-color);
+}
+
+
+.hangman-draw .the-draw .the-stand {
+    display: none;
+    position: absolute;
+    height: 270px;
+    background-color: var(--main-color);
+    width: var(---the-stoke);
+    bottom:0;
+    left: 26px;
+}
+ 
+.hangman-draw .the-draw.wrong-2 .the-stand {
+    display: block;
+}
+
+.hangman-draw .the-draw .the-hang {
+display: none;
+}
+
+.hangman-draw .the-draw.wrong-3 .the-hang {
+    display: block;
+}
+
+.hangman-draw .the-draw .the-hang::before {
+    content: '';
+    position: absolute;
+    width: 100px;
+    height: var(---the-stoke);
+    background-color: var(--main-color);
+    top: 15px;
+    left: 26px;
+}
+.hangman-draw .the-draw .the-hang::after {
+    content: '';
+    position: absolute;
+    height: 60px;
+    width: var(---the-stoke);
+    background-color: var(--main-color);
+    top: 15px;
+    left: 125px;
+}
+
+.hangman-draw .the-draw .the-rope {
+    display: none;
+}
+
+.hangman-draw .the-draw.wrong-4 .the-rope {
+    display: block;
+}
+
+.hangman-draw .the-draw .the-rope {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: var(---the-stoke) dashed  var(--main-color);
+    top: 71px;
+    left: 89px;
+}
+
+
+.hangman-draw .the-draw .the-man .the-head {
+    display: none;
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: var(---the-stoke) solid  var(--main-color);
+    top: 80px;
+    left: 99px;
+}
+
+.hangman-draw .the-draw.wrong-5 .the-head {
+    display: block;
+}
+
+.hangman-draw .the-draw .the-man .the-body {
+    display: none;
+    position: absolute;
+    height: 100px;
+    width: var(---the-stoke);
+    background-color: var(--main-color);
+    top: 140px;
+    left: 125px;
+}
+.hangman-draw .the-draw.wrong-6 .the-body {
+    display: block;
+}
+
+.hangman-draw .the-draw .the-man .the-hands {
+    display: none;
+}
+
+.hangman-draw .the-draw.wrong-7 .the-hands {
+    display: block;
+}
+
+.hangman-draw .the-draw .the-man .the-hands::before,
+.hangman-draw .the-draw .the-man .the-hands::after {
+    content: '';
+    position: absolute;
+    width: 60px;
+    height: var(---the-stoke);
+    background-color: var(--main-color);
+}
+.hangman-draw .the-draw .the-man .the-hands::before {
+    top: 174px;
+    left: 124px;
+    transform: rotate(30deg);
+}
+.hangman-draw .the-draw .the-man .the-hands::after {
+    top: 174px;
+    left: 72px;
+    transform: rotate(-30deg);
+}
+
+.hangman-draw .the-draw .the-man .the-legs {
+    display: none;
+}
+
+.hangman-draw .the-draw.wrong-8 .the-legs {
+    display: block;
+}
+
+.hangman-draw .the-draw .the-man .the-legs::before,
+.hangman-draw .the-draw .the-man .the-legs::after {
+    content: '';
+    position: absolute;
+    width: 60px;
+    height: var(---the-stoke);
+    background-color: var(--main-color);
+}
+.hangman-draw .the-draw .the-man .the-legs::before {
+    top: 250px;
+    left: 124px;
+    transform: rotate(30deg);
+}
+.hangman-draw .the-draw .the-man .the-legs::after {
+    top: 250px;
+    left: 72px;
+    transform: rotate(-30deg);
+}
+
+.letters {
+    flex:1;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    flex-wrap: wrap;
+}
+
+.letters .letter-box {
+    width: 55px;
+    height: 60px;
+    background-color: #0C7AFC;
+    text-align: center;
+    margin-right: 5px;
+    line-height: 55px;
+    color: white;
+    cursor: pointer;
+    border-radius:6px ;
+    font-weight: bold;
+    font-size: 25px;
+}
+
+.letters .letter-box.clicked {
+    background-color: var(--main-color);
+    opacity: .2;
+    pointer-events: none;
+}
+
+
+
+
+.letters-guess {
+    display: flex;
+    justify-content: center;
+    min-height: 66px;
+    margin: 20px auto;
+    align-items: center;
+    background-color: #f8f8f8f8;
+    padding: 20px;
+}
+
+.letters-guess span {
+    width: 55px;
+    height: 60px;
+    background-color: #ffffffff;
+    margin-right: 10px;
+    border-bottom: 4px solid var(--main-color);
+    border-radius: 6px;
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.letters-guess span.space {
+    position: relative;
+    background-color: white;
+    border:none;
+}
+
+.letters-guess .space::before {
+    content: '';
+    position: absolute;
+    height: 3px;
+    width: 70%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-color: var(--main-color);
+}
+
+.overLay {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    background-color: #0000009e;
+}
+
+.popUp {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    padding: 40px 50px;
+    background-color: #0C7AFC;
+    color: white;
+    font-size: 28px;
+    width: fit-content;
+    border-radius: 6px;
+    z-index: 9999;
+}
+
+.popUp2 {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    padding: 40px 50px;
+    background-color: rgba(9, 254, 9, 0.918);
+    color: white;
+    font-size: 28px;
+    width: fit-content;
+    border-radius: 6px;
+    font-weight: bold;
+    z-index: 9999;
+}
+
+.popUp button {
+    position: absolute;
+    bottom: 0px;
+    right: -3px;
+    border-radius: 6px;
+    padding: 5px 10px;
+    background: darkblue;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+}
+.popUp2 button {
+    position: absolute;
+    bottom: 0px;
+    right: -3px;
+    border-radius: 6px;
+    padding: 5px 10px;
+    background: darkblue;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.popUp button a {
+    text-decoration: none;
+    color: white;
+}
+.popUp2 button a {
+    text-decoration: none;
+    color: white;
+}
+
+.close {
+    position: absolute;
+    right: -10px;
+    top: -10px;
+    width: 20px;
+    height: 20px;
+    background-color: red;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.close::before {
+content: '';
+position: absolute;
+left: 50%;
+top: 50%;
+transform: translate(-50%, -50%) rotate(40deg);
+height: 3px;
+width: 15px;
+background-color: white;
+border-radius: 6px;
+}
+.close::after {
+content: '';
+position: absolute;
+left: 50%;
+top: 50%;
+transform: translate(-50%, -50%) rotate(-40deg);
+height: 3px;
+width: 15px;
+background-color: white;
+border-radius: 6px;
+}
+
+.loser {
+    pointer-events: none;
+}

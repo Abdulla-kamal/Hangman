@@ -1,0 +1,33 @@
+{
+  "programming": ["Java", "JavaScript", "Python", "C++", "R", "Dart", "C#"],
+  "countries": ["Libya", "Egypt", "Palstine", "Syria", "Algeria"],
+  "people": [
+    "Abraham Lincoln",
+    "Nelson Mandela",
+    "Muhammad Ali",
+    "Albert Einstein",
+    "Thomas Edison"
+  ],
+  "movies": [
+    "Breaking Bad",
+    "CoCo",
+    "The Last Of Us",
+    "The Walking Dead",
+    "Friends",
+    "Zombie Land"
+  ],
+  "Foot ball Teams" : [
+    "Real Madrid",
+    "Barcelona",
+    "Bayern Munich",
+    "Chelsea",
+    "Manchester United",
+    "Arsenal",
+    "Tottenham Hotspur",
+    "Liverpool",
+    "Juventus",
+    "AC Milan",
+    "Inter",
+    "Napoli"
+  ]
+}
